@@ -10,12 +10,23 @@ class Question extends React.Component {
         }
     }
 
-    onStarHover = (event) => {
-        event.target.classList.add("fa-solid");
-        event.target.classList.remove("fa-regular");
+    onStarClicked = (rating) => {
+        this.setState({
+            rating: rating,
+        })
     }
 
     render() {
+
+        let starsArray = [];
+        for(let i = 1; i <= this.state.rating; i++){
+            starsArray.push(<i onClick={() => this.onStarClicked(i)} className="question__star fa-solid fa-star"></i>);
+        }
+
+        for(let i = this.state.rating + 1; i < 6; i++) {
+            starsArray.push(<i onClick={() => this.onStarClicked(i)} className="question__star fa-regular fa-star"></i>);
+        }
+
         return (
             <article className="question">
                 <header className="question__header">
@@ -24,11 +35,7 @@ class Question extends React.Component {
                 <section className="question__section">
                     <p className="question__text">1 Ster staat voor zeer slecht, 5 sterren staan voor zeer goed.</p>
                     <div className="question__stars">
-                        <i onMouseEnter={this.onStarHover} className="question__star fa-regular fa-star"></i>
-                        <i onMouseEnter={this.onStarHover} className="question__star fa-regular fa-star"></i>
-                        <i onMouseEnter={this.onStarHover} className="question__star fa-regular fa-star"></i>
-                        <i onMouseEnter={this.onStarHover} className="question__star fa-regular fa-star"></i>
-                        <i onMouseEnter={this.onStarHover} className="question__star fa-regular fa-star"></i>
+                        {starsArray}
                     </div>
                 </section>
                 <footer className="question__footer">
