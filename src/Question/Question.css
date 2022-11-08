@@ -39,6 +39,9 @@
     font-size: 120%;
 }
 
+.fa-solid {
+    color: rgb(212, 185, 32);
+}
 .question__text {
     font-size: 90%;
 }
