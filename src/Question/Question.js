@@ -1,12 +1,12 @@
 import React from "react";
 import "./Question.css";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 
 class Question extends React.Component {
 
     constructor(props) {
         super(props);
-        this.myNumber = this.props.params.match.number;
+        this.myNumber = this.props.match.params.number;
         this.state = {
             rating: 0,
         }
@@ -53,4 +53,4 @@ class Question extends React.Component {
     }
 }
 
-export default Question;
+export default withRouter (Question);

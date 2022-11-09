@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Question from "./Question/Question";
 import Intro from "./Intro/Intro";
 import questions from "./Data/questions";
@@ -11,10 +11,10 @@ const App = () => {
     })
     return(
         <> 
-            <Routes>
-                <Route path="/" element={ <Intro />}></Route>
-                <Route path="/vraag/:number" element={ <Question /> }></Route>
-            </Routes>
+            <Switch>
+                <Route path="/vraag/:number" component={Question}></Route>
+                <Route path="/" component={Intro}></Route>
+            </Switch>
         </>
     );
 }
