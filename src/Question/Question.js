@@ -53,4 +53,4 @@ class Question extends React.Component {
     }
 }
 
-export default withRouter (Question);
+export default Question;
