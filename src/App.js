@@ -1,9 +1,12 @@
 import "./App.css";
-import Homepage from "./Pages/Homepage";
+import { Routes, Route } from "react-router-dom";
+import Question from "./Question/Question";
 
 const App = () => {
     return(
-        <Homepage />
+        <Routes>
+            <Route path="/vraag" element={ <Question /> }></Route>
+        </Routes>
     );
 }
 
