@@ -1,13 +1,19 @@
 import React from "react";
 import "./Question.css";
+import { withRouter } from "react-router";
 
 class Question extends React.Component {
 
     constructor(props) {
         super(props);
+        this.myNumber = this.props.params.match.number;
         this.state = {
             rating: 0,
         }
+    }
+
+    componentDidMount(){
+        this.setState({rating: this.props.rating});
     }
 
     onStarClicked = (rating) => {
@@ -30,7 +36,7 @@ class Question extends React.Component {
         return (
             <article className="question">
                 <header className="question__header">
-                    <h2 className="question__h2">Hoe goed ken je React?</h2>
+                    <h2 className="question__h2">#{this.props.number }  {this.props.question}</h2>
                 </header>
                 <section className="question__section">
                     <p className="question__text">1 Ster staat voor zeer slecht, 5 sterren staan voor zeer goed.</p>
@@ -47,4 +53,4 @@ class Question extends React.Component {
     }
 }
 
-export default Question;
+export default withRouter (Question);
