@@ -3,7 +3,7 @@ import "./Intro.css";
 
 const Intro = () => {
     return(
-        <Link to="/vraag/1">Start</Link>
+        <Link to="/vragen/1">Start</Link>
     );
 }
 
